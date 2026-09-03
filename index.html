@@ -2284,8 +2284,39 @@
       phoneInput.addEventListener('input', function() {
         this.value = formatKzPhone(this.value);
       });
-      phoneInput.addEventListener('paste', function() {
-        setTimeout(() => { this.value = formatKzPhone(this.value); }, 0);
+
+      phoneInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Backspace' || e.key === 'Delete') {
+          e.preventDefault();
+
+          let digits = this.value.replace(/\D/g, '');
+
+          if (digits.length > 0) {
+            digits = digits.slice(0, -1);
+          }
+
+          this.value = formatKzPhone(digits);
+
+          // Always keep the cursor at the end for predictable editing.
+          requestAnimationFrame(() => {
+            const pos = this.value.length;
+            this.setSelectionRange(pos, pos);
+          });
+        }
+      });
+
+      phoneInput.addEventListener('paste', function(e) {
+        e.preventDefault();
+
+        let pasted = (e.clipboardData || window.clipboardData).getData('text') || '';
+        let digits = pasted.replace(/\D/g, '');
+
+        // If a full Kazakhstan/Russia number was pasted, remove leading 7/8.
+        if (digits.length === 11 && (digits.startsWith('7') || digits.startsWith('8'))) {
+          digits = digits.slice(1);
+        }
+
+        this.value = formatKzPhone(digits.slice(0, 10));
       });
     }
 
