@@ -1848,16 +1848,12 @@
     <h1 class="a8z-intro__title" id="a8z-intro-title">20 ЖЫЛ БІРГЕ</h1>
 
     <p class="a8z-intro__subtitle">Мерейтойлық кеш</p>
-    <p class="a8z-intro__description">Құрметті әріптестер, ардақты қонақтар!
-
-Сіздерді дарынды ұрпақты қолдап, білім мен биік мақсатқа бастау жолында 20 жылдық тарихы қалыптасқан «Астана дарыны» орталығының мерейтойлық іс-шарасына шақырамыз.
-
-Бұл – өткенге тағзым етіп, жетістіктерді саралап, жарқын болашаққа бірге қадам басатын ерекше мерейлі сәт. Мерейтойымыздың қадірлі қонағы болыңыздар!</p>
+    <p class="a8z-intro__description">Сізді осы ерекше кешті бізбен бірге өткізуге шақырамыз.</p>
 
     <div class="a8z-intro__meta">
       <div class="a8z-intro__meta-item">
         <div class="a8z-intro__meta-label">Күні</div>
-        <div class="a8z-intro__meta-value">3 қазан 2026</div>
+        <div class="a8z-intro__meta-value">20 қыркүйек 2026</div>
       </div>
       <div class="a8z-intro__divider" aria-hidden="true"></div>
       <div class="a8z-intro__meta-item">
@@ -1869,6 +1865,11 @@
     <a href="#g4s-rsvp" class="a8z-intro__cta" data-scroll-to="g4s-rsvp">
       <span>Қатысуды растау</span>
     </a>
+  </div>
+
+  <div class="a8z-intro__scroll-hint" aria-hidden="true">
+    
+    <div class="a8z-intro__scroll-line"></div>
   </div>
 </section>
 
@@ -1898,7 +1899,7 @@
     <h2 class="c7m-date__heading c7m-reveal" id="c7m-date-title">
       Осы күнді сақтап қойыңыз
     </h2>
-    <div class="c7m-date__date c7m-reveal">3 қазан 2026</div>
+    <div class="c7m-date__date c7m-reveal">20 қыркүйек 2026</div>
     <div class="c7m-date__day c7m-reveal">жексенбі</div>
 
     <div class="c7m-date__card c7m-reveal">
@@ -2090,7 +2091,7 @@
             </span>
             <div class="f5r-venue__list-text">
               <span class="f5r-venue__list-label">Күні</span>
-              <span class="f5r-venue__list-value">3 қазан 2026</span>
+              <span class="f5r-venue__list-value">20 қыркүйек 2026</span>
             </div>
           </li>
           <li class="f5r-venue__list-item">
@@ -2158,19 +2159,7 @@
         <div class="g4s-form__field-error">Нұсқалардың бірін таңдаңыз.</div>
       </div>
 
-      <div class="g4s-form__field">
-        <div class="g4s-form__group-title">Қонақ саны</div>
-        <div class="g4s-form__radios">
-          <label class="g4s-form__radio">
-            <input type="radio" name="Company" value="Жалғыз келемін" data-tilda-req="1" checked="">
-            <span class="g4s-form__radio-label">Жалғыз келемін</span>
-          </label>
-          <label class="g4s-form__radio">
-            <input type="radio" name="Company" value="+1 адаммен келемін">
-            <span class="g4s-form__radio-label">+1 адаммен келемін</span>
-          </label>
-        </div>
-      </div>
+      
 
       <div class="g4s-form__submit-wrap">
         <button type="submit" class="t-submit g4s-form__submit">
@@ -2348,21 +2337,8 @@
 
     if (rsvpForm) {
       const attendanceInputs = rsvpForm.querySelectorAll('input[name="Attendance"]');
-      const companyField = Array.from(rsvpForm.querySelectorAll('.g4s-form__field')).find(function(field) {
-        return field.querySelector('input[name="Company"]');
-      });
-
-      // If "Не смогу" is selected, hide the guest-count choice.
-      attendanceInputs.forEach(function(input) {
-        input.addEventListener('change', function() {
-          if (!companyField) return;
-          if (input.checked && input.value === 'Қатыса алмаймын') {
-            companyField.style.display = 'none';
-          } else if (input.checked) {
-            companyField.style.display = '';
-          }
-        });
-      });
+// If "Не смогу" is selected, hide the guest-count choice.
+});
 
       rsvpForm.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -2372,18 +2348,11 @@
         const phoneDigits = phoneNational.replace(/\D/g, '');
         const phone = phoneDigits ? '+7 ' + phoneNational : '';
         const attendance = rsvpForm.querySelector('input[name="Attendance"]:checked')?.value || '';
-        let guests = rsvpForm.querySelector('input[name="Company"]:checked')?.value || '';
-
-        if (!name || phoneDigits.length !== 10 || !attendance) {
+if (!name || phoneDigits.length !== 10 || !attendance) {
           showRsvpError(rsvpForm, 'Аты-жөніңізді енгізіп, телефон нөмірін толық толтырыңыз және қатысу нұсқасын таңдаңыз.');
           return;
         }
-
-        if (attendance === 'Қатыса алмаймын') {
-          guests = '';
-        }
-
-        const submitBtn = rsvpForm.querySelector('.g4s-form__submit');
+const submitBtn = rsvpForm.querySelector('.g4s-form__submit');
         const submitText = submitBtn ? submitBtn.querySelector('span') : null;
         const originalText = submitText ? submitText.textContent : '';
 
@@ -2401,7 +2370,6 @@
               name: name,
               phone: phone,
               attendance: attendance,
-              guests: guests
             })
           });
 
