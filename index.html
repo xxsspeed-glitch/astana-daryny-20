@@ -1853,7 +1853,7 @@
     <div class="a8z-intro__meta">
       <div class="a8z-intro__meta-item">
         <div class="a8z-intro__meta-label">Күні</div>
-        <div class="a8z-intro__meta-value">20 қыркүйек 2026</div>
+        <div class="a8z-intro__meta-value">3 қазан 2026</div>
       </div>
       <div class="a8z-intro__divider" aria-hidden="true"></div>
       <div class="a8z-intro__meta-item">
@@ -1899,7 +1899,7 @@
     <h2 class="c7m-date__heading c7m-reveal" id="c7m-date-title">
       Осы күнді сақтап қойыңыз
     </h2>
-    <div class="c7m-date__date c7m-reveal">20 қыркүйек 2026</div>
+    <div class="c7m-date__date c7m-reveal">3 қазан 2026</div>
     <div class="c7m-date__day c7m-reveal">жексенбі</div>
 
     <div class="c7m-date__card c7m-reveal">
@@ -2091,7 +2091,7 @@
             </span>
             <div class="f5r-venue__list-text">
               <span class="f5r-venue__list-label">Күні</span>
-              <span class="f5r-venue__list-value">20 қыркүйек 2026</span>
+              <span class="f5r-venue__list-value">3 қазан 2026</span>
             </div>
           </li>
           <li class="f5r-venue__list-item">
@@ -2158,8 +2158,6 @@
         </div>
         <div class="g4s-form__field-error">Нұсқалардың бірін таңдаңыз.</div>
       </div>
-
-      
 
       <div class="g4s-form__submit-wrap">
         <button type="submit" class="t-submit g4s-form__submit">
@@ -2337,8 +2335,21 @@
 
     if (rsvpForm) {
       const attendanceInputs = rsvpForm.querySelectorAll('input[name="Attendance"]');
-// If "Не смогу" is selected, hide the guest-count choice.
-});
+      const companyField = Array.from(rsvpForm.querySelectorAll('.g4s-form__field')).find(function(field) {
+        return field.querySelector('input[name="Company"]');
+      });
+
+      // If "Не смогу" is selected, hide the guest-count choice.
+      attendanceInputs.forEach(function(input) {
+        input.addEventListener('change', function() {
+          if (!companyField) return;
+          if (input.checked && input.value === 'Қатыса алмаймын') {
+            companyField.style.display = 'none';
+          } else if (input.checked) {
+            companyField.style.display = '';
+          }
+        });
+      });
 
       rsvpForm.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -2348,11 +2359,18 @@
         const phoneDigits = phoneNational.replace(/\D/g, '');
         const phone = phoneDigits ? '+7 ' + phoneNational : '';
         const attendance = rsvpForm.querySelector('input[name="Attendance"]:checked')?.value || '';
-if (!name || phoneDigits.length !== 10 || !attendance) {
+        let guests = rsvpForm.querySelector('input[name="Company"]:checked')?.value || '';
+
+        if (!name || phoneDigits.length !== 10 || !attendance) {
           showRsvpError(rsvpForm, 'Аты-жөніңізді енгізіп, телефон нөмірін толық толтырыңыз және қатысу нұсқасын таңдаңыз.');
           return;
         }
-const submitBtn = rsvpForm.querySelector('.g4s-form__submit');
+
+        if (attendance === 'Қатыса алмаймын') {
+          guests = '';
+        }
+
+        const submitBtn = rsvpForm.querySelector('.g4s-form__submit');
         const submitText = submitBtn ? submitBtn.querySelector('span') : null;
         const originalText = submitText ? submitText.textContent : '';
 
@@ -2370,6 +2388,7 @@ const submitBtn = rsvpForm.querySelector('.g4s-form__submit');
               name: name,
               phone: phone,
               attendance: attendance,
+              guests: guests
             })
           });
 
