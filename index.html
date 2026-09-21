@@ -612,124 +612,6 @@
     .c7m-date__row { gap: 18px; }
   }
 
-  /* ========== PROGRAM ========== */
-  .d2p-program,
-  .d2p-program * { box-sizing: border-box; }
-  .d2p-program input,
-  .d2p-program textarea,
-  .d2p-program select { font: inherit; }
-  .d2p-program {
-    background: #0a0a0c;
-    color: #fff;
-    font-family: var(--t-text-font);
-    padding: 160px 24px;
-  }
-  .d2p-program__inner {
-    max-width: 980px;
-    margin: 0 auto;
-  }
-  .d2p-program__heading {
-    font-family: var(--t-headline-font);
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 300;
-    margin: 0 0 96px;
-    color: #fff;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-    text-wrap: balance;
-  }
-  .d2p-program__heading span {
-    color: #c9a96e;
-  }
-  .d2p-program__timeline {
-    position: relative;
-  }
-  .d2p-program__line {
-    position: absolute;
-    left: 110px;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(180deg, rgba(201,169,110,0) 0%, rgba(201,169,110,0.4) 8%, rgba(201,169,110,0.4) 92%, rgba(201,169,110,0) 100%);
-  }
-  .d2p-program__item {
-    display: grid;
-    grid-template-columns: 110px 1fr;
-    gap: 48px;
-    padding: 32px 0;
-    position: relative;
-    align-items: center;
-  }
-  .d2p-program__item + .d2p-program__item {
-    border-top: 1px solid rgba(255,255,255,0.04);
-  }
-  .d2p-program__dot {
-    position: absolute;
-    left: 106px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: #c9a96e;
-    box-shadow: 0 0 0 6px #0a0a0c, 0 0 0 7px rgba(201,169,110,0.3);
-  }
-  .d2p-program__time {
-    font-family: var(--t-headline-font);
-    font-size: clamp(20px, 2vw, 24px);
-    font-weight: 400;
-    color: #c9a96e;
-    letter-spacing: 0.01em;
-    text-align: right;
-    padding-right: 32px;
-  }
-  .d2p-program__content {
-    padding-left: 40px;
-  }
-  .d2p-program__title {
-    font-family: var(--t-headline-font);
-    font-size: clamp(20px, 2.2vw, 28px);
-    font-weight: 400;
-    color: #fff;
-    margin: 0;
-    letter-spacing: -0.005em;
-  }
-  .d2p-program__desc {
-    font-family: var(--t-text-font);
-    font-size: 15px;
-    color: rgba(255,255,255,0.55);
-    margin-top: 8px;
-    line-height: 1.6;
-  }
-  .d2p-program .d2p-reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
-  }
-  .d2p-program .d2p-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  @media (max-width: 720px) {
-    .d2p-program { padding: 120px 24px; }
-    .d2p-program__heading { margin-bottom: 64px; }
-    .d2p-program__line { left: 70px; }
-    .d2p-program__item {
-      grid-template-columns: 70px 1fr;
-      gap: 24px;
-      padding: 24px 0;
-    }
-    .d2p-program__dot { left: 66px; }
-    .d2p-program__time {
-      font-size: 17px;
-      padding-right: 16px;
-    }
-    .d2p-program__content { padding-left: 24px; }
-    .d2p-program__title { font-size: 18px; }
-  }
-  @media (max-width: 480px) {
-    .d2p-program { padding: 96px 20px; }
-  }
 
   /* ========== SPEAKERS ========== */
   .e9q-speakers,
@@ -886,192 +768,6 @@
     .e9q-speakers__grid { gap: 16px; }
   }
 
-  /* ========== VENUE ========== */
-  .f5r-venue,
-  .f5r-venue * { box-sizing: border-box; }
-  .f5r-venue input,
-  .f5r-venue textarea,
-  .f5r-venue select { font: inherit; }
-  .f5r-venue {
-    background: #0a0a0c;
-    color: #fff;
-    font-family: var(--t-text-font);
-    padding: 160px 24px;
-  }
-  .f5r-venue__inner {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-  .f5r-venue__heading {
-    font-family: var(--t-headline-font);
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 300;
-    margin: 0 0 80px;
-    color: #fff;
-    letter-spacing: -0.02em;
-    text-wrap: balance;
-  }
-  .f5r-venue__heading span {
-    color: #c9a96e;
-  }
-  .f5r-venue__layout {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 64px;
-    align-items: stretch;
-  }
-  .f5r-venue__image-wrap {
-    position: relative;
-    border-radius: 4px;
-    overflow: hidden;
-    min-height: 480px;
-  }
-  .f5r-venue__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 1.2s cubic-bezier(0.16,1,0.3,1);
-  }
-  .f5r-venue__image-wrap:hover .f5r-venue__image {
-    transform: scale(1.04);
-  }
-  .f5r-venue__image-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(10,10,12,0.3) 0%, rgba(10,10,12,0.6) 100%);
-    pointer-events: none;
-  }
-  .f5r-venue__image-tag {
-    position: absolute;
-    top: 24px;
-    left: 24px;
-    font-family: var(--t-text-font);
-    font-size: 10px;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.85);
-    padding: 8px 16px;
-    background: rgba(10,10,12,0.5);
-    border: 1px solid rgba(201,169,110,0.4);
-    border-radius: 100px;
-    backdrop-filter: blur(10px);
-  }
-  .f5r-venue__details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 24px 0;
-  }
-  .f5r-venue__name {
-    font-family: var(--t-headline-font);
-    font-size: clamp(26px, 3vw, 38px);
-    font-weight: 400;
-    color: #fff;
-    margin: 0 0 24px;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-  }
-  .f5r-venue__list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 32px;
-  }
-  .f5r-venue__list-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 18px 0;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-  .f5r-venue__list-item:last-child {
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .f5r-venue__list-icon {
-    color: #c9a96e;
-    flex-shrink: 0;
-    margin-top: 4px;
-  }
-  .f5r-venue__list-icon img {
-    width: 20px;
-    height: 20px;
-    display: block;
-  }
-  .f5r-venue__list-text {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .f5r-venue__list-label {
-    font-family: var(--t-text-font);
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-  }
-  .f5r-venue__list-value {
-    font-family: var(--t-headline-font);
-    font-size: 17px;
-    color: #fff;
-    font-weight: 400;
-  }
-  .f5r-venue__cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    font-family: var(--t-headline-font);
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: #c9a96e;
-    background: transparent;
-    border: 1px solid rgba(201,169,110,0.5);
-    padding: 18px 36px;
-    border-radius: 100px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.4s, color 0.4s, border-color 0.4s;
-    align-self: flex-start;
-  }
-  .f5r-venue__cta:hover {
-    background: #c9a96e;
-    color: #0a0a0a;
-    border-color: #c9a96e;
-  }
-  .f5r-venue__note {
-    font-family: var(--t-text-font);
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    margin-top: 20px;
-    line-height: 1.6;
-    font-style: italic;
-  }
-  .f5r-venue .f5r-reveal {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1);
-  }
-  .f5r-venue .f5r-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  @media (max-width: 960px) {
-    .f5r-venue__layout {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    .f5r-venue__image-wrap { min-height: 360px; }
-  }
-  @media (max-width: 720px) {
-    .f5r-venue { padding: 120px 24px; }
-    .f5r-venue__heading { margin-bottom: 48px; }
-  }
-  @media (max-width: 480px) {
-    .f5r-venue { padding: 96px 20px; }
-    .f5r-venue__image-wrap { min-height: 280px; }
-  }
 
   /* ========== RSVP ========== */
   .g4s-rsvp,
@@ -1567,7 +1263,7 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
-    .b3k-reveal, .c7m-reveal, .d2p-reveal, .e9q-reveal, .f5r-reveal, .g4s-reveal, .h1t-reveal {
+    .b3k-reveal, .c7m-reveal, .e9q-reveal, .g4s-reveal, .h1t-reveal {
       opacity: 1 !important;
       transform: none !important;
     }
@@ -1632,16 +1328,6 @@
   .c7m-date__row-label { color: var(--ad-muted); }
   .c7m-date__row-value { color: var(--ad-text); }
 
-  /* PROGRAM */
-  .d2p-program { background: var(--ad-white); color: var(--ad-text); }
-  .d2p-program__heading { color: var(--ad-text); }
-  .d2p-program__heading span { color: var(--ad-turquoise); }
-  .d2p-program__line { background: linear-gradient(180deg, transparent 0%, rgba(26,182,199,0.42) 8%, rgba(26,182,199,0.42) 92%, transparent 100%); }
-  .d2p-program__item + .d2p-program__item { border-top-color: rgba(26,31,46,0.06); }
-  .d2p-program__dot { background: var(--ad-turquoise); box-shadow: 0 0 0 6px var(--ad-white), 0 0 0 7px rgba(26,182,199,0.30); }
-  .d2p-program__time { color: var(--ad-turquoise-dark); }
-  .d2p-program__title { color: var(--ad-text); }
-  .d2p-program__desc { color: var(--ad-muted); }
 
   /* SPEAKERS */
   .e9q-speakers { background: linear-gradient(180deg, #F6F7F5 0%, #EDF8F9 100%); color: var(--ad-text); }
@@ -1657,21 +1343,6 @@
   .e9q-speakers__role { color: var(--ad-turquoise-dark); }
   .e9q-speakers__company { color: var(--ad-muted); }
 
-  /* VENUE */
-  .f5r-venue { background: var(--ad-white); color: var(--ad-text); }
-  .f5r-venue__heading { color: var(--ad-text); }
-  .f5r-venue__heading span { color: var(--ad-turquoise); }
-  .f5r-venue__image-overlay { background: linear-gradient(135deg, rgba(14,143,160,0.10) 0%, rgba(26,31,46,0.22) 100%); }
-  .f5r-venue__image-tag { color: #fff; background: rgba(14,143,160,0.72); border-color: rgba(255,255,255,0.35); }
-  .f5r-venue__name { color: var(--ad-text); }
-  .f5r-venue__list-item { border-top-color: rgba(26,31,46,0.08); }
-  .f5r-venue__list-item:last-child { border-bottom-color: rgba(26,31,46,0.08); }
-  .f5r-venue__list-icon { color: var(--ad-turquoise); }
-  .f5r-venue__list-label { color: var(--ad-muted); }
-  .f5r-venue__list-value { color: var(--ad-text); }
-  .f5r-venue__cta { color: var(--ad-turquoise-dark); border-color: rgba(26,182,199,0.58); background: rgba(26,182,199,0.04); }
-  .f5r-venue__cta:hover { background: var(--ad-turquoise); color: #fff; border-color: var(--ad-turquoise); }
-  .f5r-venue__note { color: var(--ad-muted); }
 
   /* RSVP */
   .g4s-rsvp { background: linear-gradient(180deg, #EDF8F9 0%, #F6F7F5 100%); color: var(--ad-text); }
@@ -1853,12 +1524,12 @@
     <div class="a8z-intro__meta">
       <div class="a8z-intro__meta-item">
         <div class="a8z-intro__meta-label">Күні</div>
-        <div class="a8z-intro__meta-value">3 қазан 2026</div>
+        <div class="a8z-intro__meta-value">28 қазан 2026</div>
       </div>
       <div class="a8z-intro__divider" aria-hidden="true"></div>
       <div class="a8z-intro__meta-item">
         <div class="a8z-intro__meta-label">Уақыты</div>
-        <div class="a8z-intro__meta-value">18:00</div>
+        <div class="a8z-intro__meta-value">10:00</div>
       </div>
     </div>
 
@@ -1899,8 +1570,8 @@
     <h2 class="c7m-date__heading c7m-reveal" id="c7m-date-title">
       Осы күнді сақтап қойыңыз
     </h2>
-    <div class="c7m-date__date c7m-reveal">3 қазан 2026</div>
-    <div class="c7m-date__day c7m-reveal">жексенбі</div>
+    <div class="c7m-date__date c7m-reveal">28 қазан 2026</div>
+    <div class="c7m-date__day c7m-reveal">бейсенбі</div>
 
     <div class="c7m-date__card c7m-reveal">
       <div class="c7m-date__row">
@@ -1926,72 +1597,6 @@
   </div>
 </section>
 
-<!-- SECTION 4: PROGRAM -->
-<section class="d2p-program" aria-labelledby="d2p-program-title">
-  <div class="d2p-program__inner">
-    <h2 class="d2p-program__heading d2p-reveal" id="d2p-program-title">
-      Кештің <span>бағдарламасы</span>
-    </h2>
-
-    <div class="d2p-program__timeline">
-      <div class="d2p-program__line" aria-hidden="true"></div>
-
-      <div class="d2p-program__item d2p-reveal">
-        <div class="d2p-program__dot" aria-hidden="true"></div>
-        <div class="d2p-program__time">17:30</div>
-        <div class="d2p-program__content">
-          <h3 class="d2p-program__title">Қонақтарды қарсы алу</h3>
-          <p class="d2p-program__desc">Қонақтарды қарсы алу аймағы, жеңіл сусындар және алғашқы жүздесулер</p>
-        </div>
-      </div>
-
-      <div class="d2p-program__item d2p-reveal">
-        <div class="d2p-program__dot" aria-hidden="true"></div>
-        <div class="d2p-program__time">18:00</div>
-        <div class="d2p-program__content">
-          <h3 class="d2p-program__title">Ресми ашылу</h3>
-          <p class="d2p-program__desc">Құттықтау сөзі және мерейтойлық кештің басталуы</p>
-        </div>
-      </div>
-
-      <div class="d2p-program__item d2p-reveal">
-        <div class="d2p-program__dot" aria-hidden="true"></div>
-        <div class="d2p-program__time">18:30</div>
-        <div class="d2p-program__content">
-          <h3 class="d2p-program__title">Спикерлердің сөз сөйлеуі</h3>
-          <p class="d2p-program__desc">Компания тарихы және болашаққа көзқарас</p>
-        </div>
-      </div>
-
-      <div class="d2p-program__item d2p-reveal">
-        <div class="d2p-program__dot" aria-hidden="true"></div>
-        <div class="d2p-program__time">19:30</div>
-        <div class="d2p-program__content">
-          <h3 class="d2p-program__title">Салтанатты кешкі ас</h3>
-          <p class="d2p-program__desc">Шеф-аспаздың арнайы мәзірі және жанды музыка</p>
-        </div>
-      </div>
-
-      <div class="d2p-program__item d2p-reveal">
-        <div class="d2p-program__dot" aria-hidden="true"></div>
-        <div class="d2p-program__time">21:00</div>
-        <div class="d2p-program__content">
-          <h3 class="d2p-program__title">Мерекелік бағдарлама</h3>
-          <p class="d2p-program__desc">Арнайы қойылымдар, тосынсыйлар және марапаттау</p>
-        </div>
-      </div>
-
-      <div class="d2p-program__item d2p-reveal">
-        <div class="d2p-program__dot" aria-hidden="true"></div>
-        <div class="d2p-program__time">23:00</div>
-        <div class="d2p-program__content">
-          <h3 class="d2p-program__title">Кештің жалғасы</h3>
-          <p class="d2p-program__desc">Шақырылған диджейдің әуенімен таңға дейін би</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- SECTION 5: SPEAKERS -->
 <section class="e9q-speakers" aria-labelledby="e9q-speakers-title">
@@ -2013,7 +1618,7 @@
           <img src="https://static.tildacdn.ink/tild3839-3238-4061-a434-343539336266/photo-1637589274742-.jpg" alt="Алексей Волков">
         </div>
         <div class="e9q-speakers__info">
-          <h3 class="e9q-speakers__name">Алексей Волков</h3>
+          <h3 class="e9q-speakers__name">ХХХХ-ХХХХ</h3>
           <p class="e9q-speakers__role">Бас директор</p>
           <p class="e9q-speakers__company">Компания · Құрылтайшы</p>
         </div>
@@ -2025,7 +1630,7 @@
           <img src="https://static.tildacdn.ink/tild6137-6437-4838-b437-363030643132/photo-1580894732444-.jpg" alt="Мария Лебедева">
         </div>
         <div class="e9q-speakers__info">
-          <h3 class="e9q-speakers__name">Мария Лебедева</h3>
+          <h3 class="e9q-speakers__name">ХХХХ-ХХХХ</h3>
           <p class="e9q-speakers__role">Операциялық директор</p>
           <p class="e9q-speakers__company">Компания · Стратегия</p>
         </div>
@@ -2037,7 +1642,7 @@
           <img src="https://static.tildacdn.ink/tild6632-6164-4230-a466-326338346162/photo-1614023342667-.jpg" alt="Дмитрий Соколов">
         </div>
         <div class="e9q-speakers__info">
-          <h3 class="e9q-speakers__name">Дмитрий Соколов</h3>
+          <h3 class="e9q-speakers__name">ХХХХ-ХХХХ</h3>
           <p class="e9q-speakers__role">Қаржы директоры</p>
           <p class="e9q-speakers__company">Компания · Серіктес</p>
         </div>
@@ -2049,7 +1654,7 @@
           <img src="https://static.tildacdn.ink/tild6137-6437-4838-b437-363030643132/photo-1580894732444-.jpg" alt="Екатерина Морозова">
         </div>
         <div class="e9q-speakers__info">
-          <h3 class="e8q-speakers__name">Екатерина Морозова</h3>
+          <h3 class="e8q-speakers__name">ХХХХ-ХХХХ</h3>
           <p class="e9q-speakers__role">Маркетинг директоры</p>
           <p class="e9q-speakers__company">Компания · Бренд</p>
         </div>
@@ -2058,62 +1663,6 @@
   </div>
 </section>
 
-<!-- SECTION 6: VENUE -->
-<section class="f5r-venue" aria-labelledby="f5r-venue-title">
-  <div class="f5r-venue__inner">
-    <h2 class="f5r-venue__heading f5r-reveal" id="f5r-venue-title">
-      Кездесу <span>орны</span>
-    </h2>
-
-    <div class="f5r-venue__layout">
-      <div class="f5r-venue__image-wrap f5r-reveal">
-        <img class="f5r-venue__image" src="https://static.tildacdn.ink/tild3262-6238-4561-b138-656466633632/photo-1785845506893-.jpg" alt="Банкетный зал">
-        <div class="f5r-venue__image-overlay"></div>
-        <span class="f5r-venue__image-tag">Өтетін орын</span>
-      </div>
-
-      <div class="f5r-venue__details f5r-reveal">
-        <h3 class="f5r-venue__name">«METROPOL» банкет залы</h3>
-
-        <ul class="f5r-venue__list">
-          <li class="f5r-venue__list-item">
-            <span class="f5r-venue__list-icon" aria-hidden="true">
-              <img src="https://static.tildacdn.ink/lib/icons/tilda/marker_location_place_where.svg" alt="">
-            </span>
-            <div class="f5r-venue__list-text">
-              <span class="f5r-venue__list-label">Мекенжай</span>
-              <span class="f5r-venue__list-value">Мәскеу, Театр алаңы, 2</span>
-            </div>
-          </li>
-          <li class="f5r-venue__list-item">
-            <span class="f5r-venue__list-icon" aria-hidden="true">
-              <img src="https://static.tildacdn.ink/lib/icons/tilda/calendar_date_schedule.svg" alt="">
-            </span>
-            <div class="f5r-venue__list-text">
-              <span class="f5r-venue__list-label">Күні</span>
-              <span class="f5r-venue__list-value">3 қазан 2026</span>
-            </div>
-          </li>
-          <li class="f5r-venue__list-item">
-            <span class="f5r-venue__list-icon" aria-hidden="true">
-              <img src="https://static.tildacdn.ink/lib/icons/tilda/watch_clock_time.svg" alt="">
-            </span>
-            <div class="f5r-venue__list-text">
-              <span class="f5r-venue__list-label">Қонақтарды қарсы алу</span>
-              <span class="f5r-venue__list-value">17:30</span>
-            </div>
-          </li>
-        </ul>
-
-        <a href="https://maps.google.com" target="_blank" rel="noopener" class="f5r-venue__cta">
-          Картадан ашу
-        </a>
-
-        <p class="f5r-venue__note">Бағдарлама басталғанға дейін 30 минут бұрын келуге кеңес береміз.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- SECTION 7: RSVP -->
 <section class="g4s-rsvp" id="g4s-rsvp" aria-labelledby="g4s-rsvp-title">
@@ -2237,12 +1786,12 @@
     });
 
     // Scroll reveal (intersection observer)
-    const revealEls = document.querySelectorAll('.b3k-reveal, .c7m-reveal, .d2p-reveal, .e9q-reveal, .f5r-reveal, .g4s-reveal, .h1t-reveal');
+    const revealEls = document.querySelectorAll('.b3k-reveal, .c7m-reveal, .e9q-reveal, .g4s-reveal, .h1t-reveal');
     if ('IntersectionObserver' in window && revealEls.length) {
       const io = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry, i) {
           if (entry.isIntersecting) {
-            const siblings = entry.target.parentElement ? Array.from(entry.target.parentElement.querySelectorAll('.b3k-reveal, .c7m-reveal, .d2p-reveal, .e9q-reveal, .f5r-reveal, .g4s-reveal, .h1t-reveal')) : [];
+            const siblings = entry.target.parentElement ? Array.from(entry.target.parentElement.querySelectorAll('.b3k-reveal, .c7m-reveal, .e9q-reveal, .g4s-reveal, .h1t-reveal')) : [];
             const idx = siblings.indexOf(entry.target);
             const delay = Math.max(0, idx) * 80;
             setTimeout(function() {
