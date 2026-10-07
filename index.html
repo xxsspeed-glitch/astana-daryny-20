@@ -1694,6 +1694,18 @@
       </div>
 
       <div class="g4s-form__field">
+        <label class="g4s-form__label" for="rsvp-city">Қала</label>
+        <input class="g4s-form__input js-tilda-rule" type="text" id="rsvp-city" name="City" data-tilda-req="1" autocomplete="address-level2" placeholder="Қалаңызды енгізіңіз">
+        <div class="g4s-form__field-error">Қалаңызды енгізіңіз.</div>
+      </div>
+
+      <div class="g4s-form__field">
+        <label class="g4s-form__label" for="rsvp-position">Лауазымы</label>
+        <input class="g4s-form__input js-tilda-rule" type="text" id="rsvp-position" name="Position" data-tilda-req="1" autocomplete="organization-title" placeholder="Лауазымыңызды енгізіңіз">
+        <div class="g4s-form__field-error">Лауазымыңызды енгізіңіз.</div>
+      </div>
+
+      <div class="g4s-form__field">
         <div class="g4s-form__group-title">Қатысуыңыз</div>
         <div class="g4s-form__radios">
           <label class="g4s-form__radio">
@@ -1907,11 +1919,13 @@
         const phoneNational = (rsvpForm.querySelector('#rsvp-phone')?.value || '').trim();
         const phoneDigits = phoneNational.replace(/\D/g, '');
         const phone = phoneDigits ? '+7 ' + phoneNational : '';
+        const city = (rsvpForm.querySelector('#rsvp-city')?.value || '').trim();
+        const position = (rsvpForm.querySelector('#rsvp-position')?.value || '').trim();
         const attendance = rsvpForm.querySelector('input[name="Attendance"]:checked')?.value || '';
         let guests = rsvpForm.querySelector('input[name="Company"]:checked')?.value || '';
 
-        if (!name || phoneDigits.length !== 10 || !attendance) {
-          showRsvpError(rsvpForm, 'Аты-жөніңізді енгізіп, телефон нөмірін толық толтырыңыз және қатысу нұсқасын таңдаңыз.');
+        if (!name || phoneDigits.length !== 10 || !city || !position || !attendance) {
+          showRsvpError(rsvpForm, 'Аты-жөніңізді, телефон нөмірін, қалаңызды және лауазымыңызды толтырып, қатысу нұсқасын таңдаңыз.');
           return;
         }
 
@@ -1936,6 +1950,8 @@
             body: JSON.stringify({
               name: name,
               phone: phone,
+              city: city,
+              position: position,
               attendance: attendance,
               guests: guests
             })
