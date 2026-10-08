@@ -1694,6 +1694,12 @@
       </div>
 
       <div class="g4s-form__field">
+        <label class="g4s-form__label" for="rsvp-iin">ЖСН / ИИН</label>
+        <input class="g4s-form__input js-tilda-rule" type="text" id="rsvp-iin" name="IIN" inputmode="numeric" maxlength="12" data-tilda-req="1" placeholder="12 санды ЖСН енгізіңіз">
+        <div class="g4s-form__field-error">12 саннан тұратын ЖСН енгізіңіз.</div>
+      </div>
+
+      <div class="g4s-form__field">
         <label class="g4s-form__label" for="rsvp-city">Қала</label>
         <input class="g4s-form__input js-tilda-rule" type="text" id="rsvp-city" name="City" data-tilda-req="1" autocomplete="address-level2" placeholder="Қалаңызды енгізіңіз">
         <div class="g4s-form__field-error">Қалаңызды енгізіңіз.</div>
@@ -1823,6 +1829,19 @@
     const rsvpForm = document.getElementById('anniv-rsvp-form');
 
     const phoneInput = document.getElementById('rsvp-phone');
+    const iinInput = document.getElementById('rsvp-iin');
+
+    if (iinInput) {
+      iinInput.addEventListener('input', function() {
+        this.value = this.value.replace(/\D/g, '').slice(0, 12);
+      });
+
+      iinInput.addEventListener('paste', function(e) {
+        e.preventDefault();
+        const pasted = (e.clipboardData || window.clipboardData).getData('text') || '';
+        this.value = pasted.replace(/\D/g, '').slice(0, 12);
+      });
+    }
 
     function formatKzPhone(value) {
       const digits = String(value || '').replace(/\D/g, '').slice(0, 10);
@@ -1919,13 +1938,14 @@
         const phoneNational = (rsvpForm.querySelector('#rsvp-phone')?.value || '').trim();
         const phoneDigits = phoneNational.replace(/\D/g, '');
         const phone = phoneDigits ? '+7 ' + phoneNational : '';
+        const iin = (rsvpForm.querySelector('#rsvp-iin')?.value || '').replace(/\D/g, '').slice(0, 12);
         const city = (rsvpForm.querySelector('#rsvp-city')?.value || '').trim();
         const position = (rsvpForm.querySelector('#rsvp-position')?.value || '').trim();
         const attendance = rsvpForm.querySelector('input[name="Attendance"]:checked')?.value || '';
         let guests = rsvpForm.querySelector('input[name="Company"]:checked')?.value || '';
 
-        if (!name || phoneDigits.length !== 10 || !city || !position || !attendance) {
-          showRsvpError(rsvpForm, 'Аты-жөніңізді, телефон нөмірін, қалаңызды және лауазымыңызды толтырып, қатысу нұсқасын таңдаңыз.');
+        if (!name || phoneDigits.length !== 10 || iin.length !== 12 || !city || !position || !attendance) {
+          showRsvpError(rsvpForm, 'Аты-жөніңізді, телефон нөмірін, 12 санды ЖСН, қалаңызды және лауазымыңызды толтырып, қатысу нұсқасын таңдаңыз.');
           return;
         }
 
@@ -1950,6 +1970,7 @@
             body: JSON.stringify({
               name: name,
               phone: phone,
+              iin: iin,
               city: city,
               position: position,
               attendance: attendance,
